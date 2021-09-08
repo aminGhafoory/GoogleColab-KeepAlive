@@ -1,11 +1,11 @@
 import pyautogui
 import time
 from random_qoute import random_qoute
-
+import random
 
 
 screenWidth, screenHeight = pyautogui.size()
-#(162,518)
+
 print('please point the mouse on the target point and press Crtl+C ')
 
 try:
@@ -16,15 +16,21 @@ try:
 except KeyboardInterrupt:
     print(f'target Point is {targetMouseX},{targetMouseY}')
 
-#set pause
-pyautogui.PAUSE = 2.5
 
-#move mouse to target position and send random text
+#move mouse to target position and click
 pyautogui.moveTo(targetMouseX, targetMouseY, duration=1)
 
-#get a random qoute in list format
-random_qoute_list = random_qoute().split(' ')
+pyautogui.click()
 
+while True:
+    #get a random qoute in list format
+    random_qoute_list = random_qoute().split(' ')
+    random_interval = random.random()
+    for word in random_qoute_list:
+        pyautogui.write(f'{word} ', interval=random_interval/5.)
+    pyautogui.hotkey('ctrl', 'a', 'backspace')
+    
+        
 
 
 
