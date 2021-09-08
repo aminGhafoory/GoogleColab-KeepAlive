@@ -27,7 +27,7 @@ while True:
     random_qoute_list = random_qoute().split(' ')
     random_interval = random.random()
     for word in random_qoute_list:
-        pyautogui.write(f'{word} ', interval=random_interval/5.)
+        pyautogui.write(f'{word} ', interval=random_interval/4.)
     pyautogui.hotkey('ctrl', 'a', 'backspace')
     
         
